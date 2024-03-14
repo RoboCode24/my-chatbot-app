@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './FaceComponent.css';
 
+
 const FaceComponent = ({ isChatting }) => {
   const [expression, setExpression] = useState('neutral');
 

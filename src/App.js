@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Humanoid Chatbot</h1>
+        <h1>AI Chatbot</h1>
       </header>
       <main>
         <FaceComponent isChatting={messages.length > 0 && messages[messages.length - 1].sender === 'bot'} />

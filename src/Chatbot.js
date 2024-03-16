@@ -1,53 +1,32 @@
 // Chatbot.js
 import React, { useState } from 'react';
 
-function Chatbot() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Chatbot from './Chatbot';
 
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
+describe('Chatbot', () => {
+  test('should call handleInputChange when input value changes', () => {
+    const handleInputChange = jest.fn();
+    render(<Chatbot handleInputChange={handleInputChange} />);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (input.trim() === '') return;
+    const input = screen.getByPlaceholderText('Type a message...');
+    userEvent.type(input, 'Hello, world!');
 
-    // Simple chatbot responses
-    let response;
-    if (input.toLowerCase().includes('hello')) {
-      response = "Hi there! How can I assist you today?";
-    } else if (input.toLowerCase().includes('how are you')) {
-      response = "I'm just a chatbot, but thanks for asking!";
-    } else {
-      response = "I'm sorry, I didn't understand that.";
-    }
+    expect(handleInputChange).toBeCalledWith('Hello, world!');
+  });
 
-    setMessages([...messages, { text: input, sender: 'user' }]);
-    setMessages([...messages, { text: response, sender: 'bot' }]);
-    setInput('');
-  };
+  test('should handle input change', () => {
+    const input = 'Hello, world!';
+    const expected = 'Hello, world!';
 
-  return (
-    <div>
-      <div className="chat-window">
-        {messages.map((message, index) => (
-          <div key={index} className={`message ${message.sender}`}>
-            {message.text}
-          </div>
-        ))}
-      </div>
-      <form onSubmit={handleSubmit} className="input-form">
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          placeholder="Type a message..."
-        />
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  );
-}
+    const { getByPlaceholderText } = render(<Chatbot />);
+    const inputEl = getByPlaceholderText('Type a message...');
+
+    userEvent.type(inputEl, input);
+
+    expect(inputEl.value).toBe(expected);
+  });
+});
 
 export default Chatbot;

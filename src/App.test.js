@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Chatbot from './Chatbot'; 
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders chatbot component', () => {
+  render(<Chatbot />);
+  const chatbotElement = screen.getByTestId('chatbot');
+  expect(chatbotElement).toBeInTheDocument();
 });
+

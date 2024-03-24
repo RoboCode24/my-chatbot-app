@@ -1,6 +1,5 @@
 {
     "configurations": [
-        
         {
             "name": "Attach to Chrome",
             "port": 9222,
@@ -9,35 +8,35 @@
             "webRoot": "${workspaceFolder}"
         },
         {
+            "type": "msedge",
             "name": "Launch Microsoft Edge",
             "request": "launch",
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ],
-            "url": "<http://roboaichatbot.io/>",
-            "type": "msedge",
+            "url": "c:\\Users\\96654\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
         },
         {
+            "type": "msedge",
             "name": "Launch Microsoft Edge in headless mode",
             "request": "launch",
             "runtimeArgs": [
                 "--headless",
                 "--remote-debugging-port=9222"
             ],
-            "url": "<http://roboaichatbot.io/>",
-            "type": "msedge",
+            "url": "c:\\Users\\96654\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
         },
         {
+            "type": "vscode-edge-devtools.debug",
             "name": "Open Edge DevTools",
             "request": "attach",
-            "url": "<http://roboaichatbot.io/",
-            "type": "vscode-edge-devtools.debug",
+            "url": "c:\\Users\\96654\\.vscode\\extensions\\ms-edgedevtools.vscode-edge-devtools-2.1.5\\out\\startpage\\index.html", // Provide your project's url to finish configuring
             "presentation": {
                 "hidden": true
             }
